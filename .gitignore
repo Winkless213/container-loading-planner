@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# PyInstaller 打包产物
+build/
+dist/
+*.manifest
+
+# 工具运行产物 / 用户项目文件
+*.cpack
+*.log
+
+# 系统
+.DS_Store
+Thumbs.db
