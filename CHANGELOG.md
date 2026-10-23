@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0
+
+- First public release with a Windows installer (Inno Setup), installed per user without a separate Python.
+- Added `--self-test`: starts the local server, requests the index page, and checks that the render chain is bundled; writes `%TEMP%\ContainerPack-self-test.log`. The installer runs it after copying files.
+- Added `installer/ContainerPack.iss`; creates Start menu shortcuts, an uninstaller, and an optional desktop shortcut.
+- README rewritten for public readers; the workbench operation manual moved to `docs/USAGE.md` and the productization log to `docs/DEVELOPMENT.md`.
+- Added MIT license and third-party notices.
+
 ## 0.45.0
 
 - Added browser-local auto draft persistence for the workbench.
