@@ -1358,5 +1358,37 @@ def main():
     print("="*60)
     uvicorn.run(app, host="127.0.0.1", port=port, log_level="warning")
 
+# ── 安装包自检 ──
+def _self_test() -> int:
+    """安装后自检：起本地服务、请求首页、确认渲染链路随包；不需要浏览器和手柄。"""
+    import traceback
+    log_path = Path(tempfile.gettempdir()) / "ContainerPack-self-test.log"
+    report = []
+    try:
+        from _visualizer import render_loading_plan  # noqa: F401  渲染链路必须随包
+        port = _find_free_port()
+        server = uvicorn.Server(uvicorn.Config(app, host="127.0.0.1", port=port, log_level="warning"))
+        threading.Thread(target=server.run, daemon=True).start()
+        deadline, body = time.time() + 40, b""
+        while time.time() < deadline:
+            try:
+                with urllib.request.urlopen(f"http://127.0.0.1:{port}/", timeout=2) as resp:
+                    body = resp.read()
+                break
+            except Exception:
+                time.sleep(0.3)
+        server.should_exit = True
+        ok = b"<html" in body.lower() and len(body) > 5000
+        report.append(f"index_bytes={len(body)}")
+        report.append("OK" if ok else "FAILED: 首页未正常返回")
+        code = 0 if ok else 3
+    except Exception:
+        report.append(traceback.format_exc())
+        code = 3
+    log_path.write_text("\n".join(report) + "\n", encoding="utf-8")
+    return code
+
 if __name__ == "__main__":
+    if "--self-test" in sys.argv:
+        raise SystemExit(_self_test())
     main()
