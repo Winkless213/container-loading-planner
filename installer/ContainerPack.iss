@@ -1,10 +1,10 @@
-; 装柜工作台 installer (Inno Setup 7)
+﻿; 装柜工作台 installer (Inno Setup 7)
 ; 先构建 PyInstaller 单文件 exe，再运行：
 ;   ISCC.exe installer\ContainerPack.iss
 
 #define AppName "装柜工作台"
 #define AppNameEn "Container Loading Planner"
-#define AppVersion "1.0.0"
+#define AppVersion "1.0.1"
 #define AppPublisher "Winkless213"
 #define AppURL "https://github.com/Winkless213/container-loading-planner"
 #define AppExe "ContainerPack.exe"
@@ -19,7 +19,7 @@ AppPublisher={#AppPublisher}
 AppPublisherURL={#AppURL}
 AppSupportURL={#AppURL}/issues
 AppUpdatesURL={#AppURL}/releases
-VersionInfoVersion=1.0.0.0
+VersionInfoVersion=1.0.1.0
 VersionInfoDescription={#AppNameEn} {#AppVersion} installer
 VersionInfoProductName={#AppNameEn}
 DefaultDirName={localappdata}\Programs\{#AppNameEn}

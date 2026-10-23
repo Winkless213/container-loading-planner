@@ -1,4 +1,4 @@
-# 装柜工作台
+﻿# 装柜工作台
 
 外贸出货前的集装箱装柜规划工具：录入货物清单，算法生成装柜初稿，人工在画布上复核调整，后端按装柜规则校验，最后导出给仓库和现场使用的方案报告。在外贸公司实际业务中使用，Windows 下打包为单文件 exe。
 
@@ -24,7 +24,7 @@
 
 ### 安装包（Windows）
 
-从 [Releases](../../releases/latest) 下载 `Container-Loading-Planner-Setup-1.0.0.exe` 安装，安装器会创建开始菜单和桌面快捷方式，装完即可使用，不需要另外安装 Python。
+从 [Releases](../../releases/latest) 下载 `Container-Loading-Planner-Setup-1.0.1.exe` 安装，安装器会创建开始菜单和桌面快捷方式，装完即可使用，不需要另外安装 Python。
 
 启动后会自动打开浏览器进入工作台；关闭控制台窗口即退出程序。安装器在安装后会执行一次隐藏自检，失败时提示查看 `%TEMP%\ContainerPack-self-test.log`。
 

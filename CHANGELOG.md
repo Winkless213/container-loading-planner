@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Installer now ships `docs/DEVELOPMENT.md` alongside `docs/USAGE.md`, so README links work from the installed folder.
+
 ## 1.0.0
 
 - First public release with a Windows installer (Inno Setup), installed per user without a separate Python.
